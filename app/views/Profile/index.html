@@ -1,0 +1,42 @@
+#{extends 'main.html' /} #{set title:'Profile' /}
+<h5 class="ui header">SpaceBook</h5>
+<nav class="ui menu">
+	<a class="ui active item" href="/home">Home</a> <a class="ui item"
+		href="/members">Members</a> <a class="ui item" href="/profile">Profile</a>
+	<a class="ui item" href="/leaderboard">Leaderboard</a> 
+	<a class="ui item" href="/login">Logout</a>
+</nav>
+<section class="ui segment">
+	<h3 class="ui header">${user.firstName} ${user.lastName}'s Profile
+		(${user.email})</h3>
+	<h4 class="ui header">Nationality: ${user.nationality}</h4>
+	<h4 class="ui header">Age: ${user.age}</h4>
+	<h4 class="header">
+		<a href="/editProfile"><i class="edit icon"></i>Edit profile</a>
+	</h4>
+	<div class="ui two column grid segment">
+		<div class="ui row">
+			<div class="ui column">
+				<br> <img src="/profile/getpicture/${user.id}"> <br>
+				<form action="/profile/uploadpicture/${user.id}" method="post"
+					enctype="multipart/form-data">
+					<input type="file" name="picture" /> <input type="submit"
+						name="submit" value="upload" />
+				</form>
+			</div>
+			<div class="ui column form segment">
+				<h2 class="ui small header">Status</h2>
+				<div class="ui green block label">
+					<p>${user.statusText}</p>
+				</div>
+				<hr>
+				<form action="/profile/changestatus" method="POST">
+					<h3 class="ui inverted teal block header">Enter Status</h3>
+					<textarea class="ui field" name="profiletext"></textarea>
+					<input class="ui teal button" type="submit" name="submit"
+						value="Change" />
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

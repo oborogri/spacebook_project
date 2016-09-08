@@ -1,0 +1,43 @@
+#{extends 'main.html' /} #{set title:'Members' /}
+<h5 class="ui header">SpaceBook</h5>
+<nav class="ui menu">
+	<a class="ui item" href="/home">Home</a> <a class="ui active item"
+		href="/members">Members</a> <a class="ui item" href="/leaderboard">Leaderboard</a>
+	<a class="ui item" href="/profile">Profile</a> <a class="ui item"
+		href="/login">Logout</a>
+</nav>
+<section class="ui segment">
+	<h3 class="ui header">SpaceBook's Members</h3>
+	<div class="sub header">Home page for: ${me.firstName}
+		${me.lastName}</div>
+	<div class="ui compact segment">
+		<table class="ui concatenated table">
+			<thead>
+				<tr>
+					<th>Nr</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Status</th>
+					<th>Friends</th>
+					<th>Follow</th>
+				</tr>
+			</thead>
+			<tbody>
+				#{list items:users, as:'user'}
+				<tr>
+					<td class="ui two wide column">${users.indexOf(user) +1}</td>
+					<td class="ui sixteen wide column">
+					<a href="/publicprofile/${user.id}"> <img class="ui avatar image"
+							src="/profile/getpicture/${user.id}">${user.getName(user)}
+					</a></td>
+					<td class="ui two wide column">${user.email}</td>
+					<td class="ui two wide column">${user.statusText}</td>
+					<td class="ui two wide column">${user.friendships.size()}</td>
+					<td><a href="/members/follow/${user.id}"><i
+							class="add user icon"></i></a>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+</section>

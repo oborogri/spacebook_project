@@ -1,0 +1,27 @@
+#{extends 'main.html' /} #{set title:'Error' /}
+<div class="ui inverted teal segment">
+	<div class="ui one column middle alligned center aligned grid">
+		<div class="column six wide form-holder">
+			<h2>Oops! Something went wrong!</h2>
+			<p>Please check your details and proceed</p>
+			<section class="ui form segment">
+				<form action="/authenticate" method="POST">
+					<div class="field">
+						<label> Username: <i class="user icon"></i></label> <input
+							type="text" name="email" placeholder="e-mail">
+					</div>
+					<div class="field">
+						<label> Password: <i class="unlock icon"></i></label> <input
+							type="password" name="password" placeholder="password">
+					</div>
+					<button class="ui fluid large teal submit button">
+						<i class="sign in icon"></i>Login
+					</button>
+					<div class="ui message">
+						Don't have an account? <a href="/accounts/signup">Sign Up</a>
+					</div>
+				</form>
+			</section>
+		</div>
+	</div>
+</div>

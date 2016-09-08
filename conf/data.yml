@@ -1,0 +1,177 @@
+User(homer):
+    firstName: Homer
+    lastName: Simpson
+    email: homer@simpson.com
+    age: 35
+    nationality: american
+    password: secret
+    statusText: offline
+    friendships:
+                - friend1
+                - friend2
+                - friend4
+                - friend7
+
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    age: 32
+    nationality: american
+    password: secret
+    statusText: offline
+    friendships:
+                - friend3
+                - friend5
+                - friend8
+    
+User(maggie):
+    firstName: Maggie
+    lastName: Simpson
+    email: maggie@simpson.com
+    age: 2
+    nationality: american
+    password: secret
+    statusText: offline
+    friendships:
+                - friend7
+    
+User(lisa):
+    firstName: Lisa
+    lastName: Simpson
+    email: lisa@simpson.com
+    age: 45
+    nationality: american
+    password: secret
+    statusText: offline
+    friendships:
+                - friend2
+                - friend5
+                    
+User(bart):
+    firstName: Bart
+    lastName: Simpson
+    email: bart@simpson.com
+    age: 18
+    nationality: american
+    password: secret
+    statusText: offline
+    friendships:
+                - friend4
+                - friend6
+
+Friendship(friend1):
+    sourceUser: homer
+    targetUser: marge
+    
+Friendship(friend2):
+    sourceUser: homer
+    targetUser: lisa
+    
+Friendship(friend3):
+    sourceUser: marge
+    targetUser: homer
+
+Friendship(friend4):
+    sourceUser: homer
+    targetUser: bart
+
+Friendship(friend5):
+    sourceUser: marge
+    targetUser: lisa
+
+Friendship(friend6):
+    sourceUser: bart
+    targetUser: maggie
+
+Friendship(friend7):
+    sourceUser: homer
+    targetUser: maggie
+
+Friendship(friend8):
+    sourceUser: marge
+    targetUser: maggie
+
+Message(message1):
+    from : marge
+    to : homer
+    messageText: 'How are things going?'
+    messageSubject: 'personal'
+    postedAt: 2016-05-10t15:20:21.05
+    
+Message(message2):
+    from : marge
+    to : homer
+    messageText: 'Where are You off to?'
+    messageSubject: 'social'
+    postedAt: 2016-05-10t15:25:19.05
+    
+Message(message3):
+    from : lisa
+    to : homer
+    messageText: 'Why are you not at work?'
+    messageSubject: 'work'
+    postedAt: 2016-05-10t15:30:10.02
+    
+Message(message4):
+    from : lisa
+    to : homer
+    messageText: 'Explain Yourself?!'
+    messageSubject: 'work'
+    postedAt: 2016-05-10t15:35:15.05
+    
+Message(message5):
+    from : marge
+    to : homer
+    messageText: 'Why are you going to the pub?'
+    messageSubject: 'social'
+    postedAt: 2016-05-10t19:30:10.05
+    
+Message(message6):
+    from : marge
+    to : homer
+    messageText: 'Dont be late!'
+    messageSubject: 'personal'
+    postedAt: 2016-05-10t19:45:15.00
+        
+Message(message7):
+    from : homer
+    to : marge
+    messageText: 'Doh!'
+    messageSubject: 'personal'
+    postedAt: 2016-05-10t19:35:20.05
+    
+Message(message8):
+    from : homer
+    to : lisa
+    messageText: 'I am working!?'
+    messageSubject: 'work'
+    postedAt: 2016-05-10t15:38:19.05
+    
+Message(message9):
+    from : homer
+    to : marge
+    messageText: 'Im off to the pub?'
+    messageSubject: 'social'
+    postedAt: 2016-05-10t15:28:12.05
+    
+Message(message10):
+    from : bart
+    to : homer
+    messageText: 'Hey, Homer!'
+    messageSubject: 'social'
+    postedAt: 2016-05-11t10:28:12.05
+    
+Message(message11):
+    from : homer
+    to : bart
+    messageText: 'Whats up Bart?!'
+    messageSubject: 'social'
+    postedAt: 2016-05-11t10:32:00.05
+    
+Message(message12):
+    from : maggie
+    to : homer
+    messageText: 'When youre coming home?'
+    messageSubject: 'personal'
+    postedAt: 2016-05-18t18:05:10.05

@@ -1,0 +1,56 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#Landing page
+GET     /                                       Accounts.login
+
+# Accounts                             
+GET    /signup                                  Accounts.signup
+GET    /login                                   Accounts.login
+GET    /accounts/logout                         Accounts.logout
+GET    /accounts/error                          Accounts.error
+
+POST   /authenticate                            Accounts.authenticate
+POST   /register                                Accounts.register
+
+# Home page
+GET     /home                                   Home.index
+GET     /home/drop/{id}	                        Home.drop
+GET     /home/byUser     						Home.byUser
+GET     /home/byDate                            Home.byDate
+GET     /home/bySubject                         Home.bySubject
+GET     /home/byConversation                    Home.byConversation
+
+# Members page
+GET     /members                                Members.index
+GET     /members/follow/{id}					Members.follow
+
+# Leaderboard page
+GET     /leaderboard                            Leaderboard.index
+GET     /leaderboard/social                     Leaderboard.social
+GET     /leaderboard/talkative                  Leaderboard.talkative
+GET     /leaderboard/inbox                      Leaderboard.inbox
+
+# Profile page
+GET     /profile                                Profile.index
+GET     /editProfile                            Profile.editProfile
+GET     /profile/getpicture/{id}                Profile.getPicture	
+
+POST    /profile/updateProfile                  Profile.updateProfile
+POST    /profile/changestatus 					Profile.changestatus	
+POST    /profile/uploadpicture/{id}             Profile.uploadPicture
+
+
+# Public Profiles
+GET     /publicprofile/{id}                     PublicProfile.visit
+POST    /publicprofile/sendmessage/{id}         PublicProfile.sendMessage
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

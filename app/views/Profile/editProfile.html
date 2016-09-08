@@ -1,0 +1,31 @@
+#{extends 'main.html' /} #{set title:'EditProfile' /}
+<h5 class="ui header">SpaceBook</h5>
+<nav class="ui menu">
+	<a class="ui active item" href="/home">Home</a> <a class="ui item"
+		href="/members">Members</a> <a class="ui item" href="/profile">Profile</a>
+	<a class="ui item" href="/leaderboard">Leaderboard</a> 
+	<a class="ui item" href="/login">Logout</a>
+</nav>
+<h3 class="ui header">Edit profile details for: ${user.firstName}
+	${user.lastName}</h3>
+<p>Type new details to update</p>
+<section class="ui form segment">
+	<form action="/profile/updateProfile" method="POST">
+		<div class="field">
+			<label>Email</label> <input placeholder="Email" type="text"
+				name="email" value="${user.email}">
+		</div>
+		<div class="field">
+			<label>Age</label> <input placeholder="Age" type="text" name="age"
+				value="${user.age}">
+		</div>
+		<div class="field">
+			<label>Password</label> <input type="password" name="password"
+				value="${user.password}">
+		</div>
+		<input class="ui teal button" type="submit" name="submit"
+			value="Change" /><a class="ui teal button" href="/profile"> 
+			<i class="ban icon"></i>Cancel
+		</a>
+	</form>
+</section>

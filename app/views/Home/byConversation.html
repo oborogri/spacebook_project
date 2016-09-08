@@ -1,0 +1,79 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+<h5 class="ui header">SpaceBook</h5>
+<nav class="ui menu">
+	<a class="ui active item" href="/home">Home</a> <a class="ui item"
+		href="/members">Members</a> <a class="ui item" href="/profile">Profile</a>
+	<a class="ui item" href="/leaderboard">Leaderboard</a> <a
+		class="ui item" href="/login">Logout</a>
+</nav>
+<section class="ui segment">
+	<h3 class="ui header">Home page for: ${user.firstName}
+		${user.lastName}</h3>
+	<div class="ui two column grid segment">
+		<div class="ui row">
+			<div class="ui six wide column">
+				<h3>
+					Friends <i class="users icon"></i> (${user.friendships.size()})
+				</h3>
+				<div class="ui list">
+					#{list items:user.friendships, as:'friendship'}
+					<div class="item">
+						<i class="right triangle icon"></i>
+						<div class="content">
+							<a href="/publicprofile/${friendship.targetUser.id}"> <img
+								class="ui avatar image"
+								src="/profile/getpicture/${friendship.targetUser.id}">
+								${friendship.targetUser.firstName}
+								${friendship.targetUser.lastName}
+							</a> (<a href="/home/drop/${friendship.targetUser.id}"> <i
+								class="remove user icon"></i></a>)
+						</div>
+					</div>
+					#{/list}
+				</div>
+			</div>
+			<div class="ui ten wide column">
+				<h3>
+					${user.firstName} & friends conversations <i class="comments icon"></i>
+				</h3>
+				#{list items:conversations, as:'conversation'}
+				<table class="ui stackable table">
+					<thead>
+						<th>Time:</th>
+						<th>Subject:</th>
+						<th>Sender:</th>
+						<th>Message:</th>
+					</thead>
+					<tbody>
+						#{list items:conversation, as:'message'}
+						<tr>
+							<td class="four wide column">${message.postedAt}</td>
+							<td class="one wide column">${message.messageSubject}</td>
+							<td class="four wide column"><a
+								href="/publicprofile/${message.from.id}"> <img
+									class="ui avatar image"
+									src="/profile/getpicture/${message.from.id}"></a>${message.from.firstName}
+								says ...</td>
+							<td class="eight wide column">"${message.messageText}"</td>
+						</tr>
+						#{/list}
+					</tbody>
+				</table>
+				#{/list}
+				<section>
+					<a href="/home/byDate"><button class="ui teal submit button">
+							<i class="sort icon"></i>BY DATE
+						</button></a> <a href="/home/byUser"><button class="ui teal submit button">
+							<i class="sort icon"></i>BY USER
+						</button></a> <a href="/home/bySubject"><button
+							class="ui teal submit button">
+							<i class="sort icon"></i>BY SUBJECT
+						</button></a>
+					<button class="ui teal submit button">
+						<i class="checkmark icon"></i>BY CONVERSATION
+					</button>
+				</section>
+			</div>
+		</div>
+	</div>
+</section>

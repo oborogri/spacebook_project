@@ -1,0 +1,44 @@
+#{extends 'main.html' /} #{set title:'Spacebook' /}
+<h5 class="ui header">SpaceBook</h5>
+<nav class="ui menu">
+	<a class="ui active item" href="/home">Back to Home</a>
+</nav>
+<section class="ui raised segment">
+	<div class="ui header">${user.firstName} ${user.lastName}'s
+		Public profile</div>
+	<h4>Nationality: ${user.nationality}</h4>
+	<h5>Status: ${user.statusText}</h5>
+	<section class="ui  two column grid segment">
+		<div class="row">
+			<div class="column">
+				<div class="ui medium image">
+					<p>
+						<img src="/profile/getpicture/${user.id}">
+					</p>
+					<form action="/publicprofile/sendmessage/${user.id}"
+						class="ui form" method="post">
+						<div class="field">
+							<label></label> <input type="text" name="messageSubject"
+								placeholder="Message subject">
+						</div>
+						<div class="field">
+							<textarea name="messageText" placeholder="Message text"></textarea>
+						</div>
+						<button class="ui fluid teal labeled submit icon button">
+							<i class="send icon"></i>Send messsage
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="column">
+				<div class="ui small header">Messages</div>
+				<hr>
+				<ul>
+					#{list items:user.inbox, as:'message'}
+					<li>${message.from.firstName} says... ${message.messageText}</li>
+					#{/list}
+				</ul>
+			</div>
+		</div>
+	</section>
+</section>
