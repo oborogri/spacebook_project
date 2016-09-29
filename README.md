@@ -1,12 +1,22 @@
-# spacebook_project 
+-- spacebook_project 
 ### code imported from bitbucket account https://bitbucket.org/oborogri/spacebook_project ###
 
-Assignment Specification
+# Author: Grigore Oboroceanu
+# version: 19-05-2016
+
+# Application name: Spacebook
+# a prototype social networking aplication, allowing users to signup, view members list, follow/drop a memeber, send/view friends messages
+
+# login with:
+# username:  homer@simpson.com
+# password: secret
+
+# Assignment Specification
 • 15 Spacebook ‘Stories’
 
 Story 1
 Extend data.yml file to include the full
-homer clan (and friends). 
+Homer Simpson clan (and friends). 
 
 Story 2
 • Extend the User Model to include the following new fields:
