@@ -5,7 +5,9 @@
 # version: 19-05-2016
 
 # Application name: Spacebook
-# a prototype social networking aplication, allowing users to signup, view members list, follow/drop a memeber, send/view friends messages
+# Project created in Eclipse using Play framework
+
+A prototype social networking aplication, allowing users to signup, view members list, follow/drop a memeber, send/view friends messages
 
 # login with:
 # username:  homer@simpson.com
